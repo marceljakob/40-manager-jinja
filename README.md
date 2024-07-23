@@ -8,7 +8,10 @@ git add
 git commit
 ```
 ## Snipplets
+### IF
+### Basic Macro Definition
+### Intermidate Macro Definition
 
-## Examples
-### 1 ex
+## Full Examples
+### example-1
 ### 2 ex
