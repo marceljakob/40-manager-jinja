@@ -1,6 +1,6 @@
 ## Purpose
 This page is intended to provide a more in-depth guideline regarding the Jinja integration in FortiManager.
-It is intended to help colleagues, customers and partners XXX
+It is intended to help colleagues, customers and partners to collect all necessary information on a single page und provide a proper enablement.
 The repository a privately maintained guideline and has no association to the official fortinet documentation.
 Furthermore, realistic examples from customer use-cases are shown and explained, which can provide a deeper insight into the Jinja configuration.
 
@@ -11,7 +11,7 @@ The following utilities are supported on FortiManager:
 - Python 3.8's built-in functions.
 - Jinja’s import and include.
 
-## Important
+## Important Considerations
 ### Whitespace Control
 FortiManager uses the default Jinja configuration for whitespace control:
 - A single trailing newline is stripped if present.
@@ -20,12 +20,19 @@ Therefore it is very important to manually strip whitespace characters. A minus 
 **Experience has shown that most errors within the generated CLI script arises from whitespace controll misconfigurations.** 
 ## Snipplets
 ### IF CONDITION
+```
+{%- if item == 'OL-SIM' and (name1 is defined) -%}
+{%- set members = members ~ " 15 25" -%}
+{%- endif -%}
+```
 ### FOR
 ```
 {%- if item == 'OL-SIM' and (name1 is defined) -%}
 {%- set members = members ~ " 15 25" -%}
 {%- endif -%}
 ```
+### FortiManager Meta Variables
+
 ### Basic Macro Definition
 Some basic Git commands are:
 ```
