@@ -50,7 +50,12 @@ XXX: Create and arrange the interface members via the call of macro function bas
 {%- endfor -%}
 {%- endmacro -%}
 -----
-set members {{ conn('ISP1', 'MPLS', 'LTE', '')}}
+
+set members {{ conn('ISP1', 'ISP2', 'LTE', 'MPLS')}}
+*Output:* set members  11 21 12 22 13 23 3
+
+set members {{ conn('ISP1', '', '', '')}}
+*Output:* set members  11 21
 
 ```
 
