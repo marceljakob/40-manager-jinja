@@ -25,7 +25,34 @@ Therefore it is very important to manually strip whitespace characters. A minus 
 ## Snipplets
 ### Hostname
 ### Interfaces
-### Member
+### SDWAN Member Configuration
+XXX: Create and arrange the interface members via the call of macro function based on the corresponding input.
+'''
+{%- macro conn(var1, var2, var3, var4) -%}
+{%- set array = [ var1, var2, var3, var4] -%}
+
+{%- set members = "" -%} 
+
+{%- for item in array -%}
+{%- if (item== 'MPLS') -%} 
+{%- set members = members ~ " 3" -%}
+{%- endif -%}
+{%- if item == 'ISP1'  -%}
+{%- set members = members ~ " 11 21" -%}
+{%- endif -%}
+{%- if item == 'ISP2' -%} 
+{%- set members = members ~ " 12 22" -%}
+{%- endif -%}
+{%- if item == 'LTE' -%} 
+{%- set members = members ~ " 13 23" -%}
+{%- endif -%}
+{{- members -}}
+{%- endfor -%}
+{%- endmacro -%}
+-----
+set members {{ conn('ISP1', 'MPLS', 'LTE', '')}}
+
+'''
 
 ## Links
 Offical Fortinet Documentation: [Jinja Filters and Functions](https://docs.fortinet.com/document/fortimanager/7.4.1/jinja-filters-and-functions/130068/supported-filters-and-functions)
